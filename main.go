@@ -26,6 +26,6 @@ func Bytes(n int) ([]byte, error) {
 // number generator fails to function correctly, in which
 // case the caller should not continue.
 func String(len int) (string, error) {
-	b, err := Bytes(len + 1)
+	b, err := Bytes(len + 2)
 	return base64.URLEncoding.EncodeToString(b)[:len], err
 }
