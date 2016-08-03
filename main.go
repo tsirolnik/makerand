@@ -25,7 +25,7 @@ func Bytes(n int) ([]byte, error) {
 // It will return an error if the system's secure random
 // number generator fails to function correctly, in which
 // case the caller should not continue.
-func String(s int) (string, error) {
-	b, err := Bytes(s)
-	return base64.URLEncoding.EncodeToString(b), err
+func String(len int) (string, error) {
+	b, err := Bytes(len + 1)
+	return base64.URLEncoding.EncodeToString(b)[:len], err
 }
